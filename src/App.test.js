@@ -24,7 +24,7 @@ describe('App', () => {
   });
 
   it('should show header', () => {
-    expect(app.find('header').text()).toBe('FizzBuzz');
+    expect(app.find('header').text()).toBe('Hackathon App');
   });
   it('should show input text field', () => {
     expect(inputWrapper.length).toBe(1);

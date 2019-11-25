@@ -26,7 +26,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">FizzBuzz</header>
+                <header className="App-header">Hackathon App</header>
                 <TextField id="input" variant="filled" type="number" label="Input" onChange={this.onChange}/>
                 <TextField id="output" variant="outlined" readOnly={true} value={this.state.value}/>
             </div>
