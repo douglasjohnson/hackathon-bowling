@@ -5,8 +5,7 @@ import {TextField} from '@material-ui/core'
 class App extends React.Component {
 
     calculate = (value) => {
-        let output = value;
-        return output;
+      return value;
     };
 
     constructor(props) {
