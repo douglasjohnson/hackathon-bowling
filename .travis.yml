@@ -9,13 +9,11 @@ deploy:
     bucket: hackathon-bowling
     region: eu-west-2
     acl: public_read
-    skip_cleanup: true
     local_dir: build
     on:
       branch: master
   - provider: pages
     github_token: $GITHUB_TOKEN
-    skip_cleanup: true
     local_dir: build
     on:
       branch: master
