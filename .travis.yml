@@ -4,9 +4,8 @@ node_js:
 before_deploy: npm run-script build
 deploy:
   - provider: s3
-    access_key_id: AKIAZO255AVAEWUQN5BF
-    secret_access_key:
-      secure: UENEZZ+dniKFIVoNkPLZqqMxCwsW8YmAD2TTgw4RiulrWWKNvNlCvEhVd8ZWrCnzuH9eWKnFL+FaYScr6oAaMzqEvjWr3u0yNttEpR7DrtTdtG4BbFVUs5yiv8cryBs7dKbZwZa95RIXAd3IJCL+I5Z3BXodEmK0qUOoH+u9h/exy0vdTvX39nmni/E8umde6NPDBkO63qf84vJnNI6nN7CXEy+dl6Xw7pEvZKyJJ75SIngRoUFgAJ5bfNs4EAvJij80T7+k05wh1SRYhtv6OcKtpU1Os9T9X4I0SP+Ne+W5jrG1TIpCLoBdqHkAcleMmBPCtZKvCFYRC04mnoI+KsNXFwYZU8HXNe7hDSGs6oHIGhgcYRCr+8o6yCs2MP0MukTyFytqmvDF+I+xgVDxyxm2lF9PTmkoIMLpgoNR6pDhp86OP6ZpehPW/C/DgDA6ffJwEHlEpWoi98QbWae+baRerAFyca39j9TA9EjqK8kmIdCJzlhiGAK1bvzPy8Rf4YrFllxnOOKSyukAZDzuVf5rEk7k6vTRiaDLcOEHkSU3BWMHutsKGMY6ZAjs+n63LG+YQIE1B558uvseUyp5y4eooO0I9YxrYciHPuHTxNgVK4rG/ENnMY+a76JVbq7jx1L3XXuufKerQcB70JxGbY8oDAEMqK/fqo6aCkoLlMk=
+    access_key_id: $S3_ACCESS_KEY_ID
+    secret_access_key: $S3_SECRET_ACCESS_KEY
     bucket: hackathon-bowling
     region: eu-west-2
     acl: public_read
@@ -15,8 +14,7 @@ deploy:
     on:
       branch: master
   - provider: pages
-    github_token:
-      secure: W75GOyUhRufqZVHVyPWTxhczY43/lSnUDVwHjOR9D2DCiAnLZotgmJjzVnNY7BBtYMt4wVBIbjVeLKydOa73mr+MspLSAOEKGdcGy4V4FqVC8+XM1KyFzr+96F8GRH8wDwgy+DPH3vQb+bBPEbuhgwoIGHnV7+9b2gGSMJmdLNc9fW0Zmk9mHsRvrVJ3v7b1tX0YlSQt2WOGI95RfbwGVSLF3nQ+GrRi58rZ7pg0maJLqmX92oVIJ4NfjcjHV3LquprdjoJJuK+I9N6hpN0W/eirQZrh8duI76HmiDwL5R6sUoRc/kzLCu9VURuitVqg5RLru+X658sTyXYzKPgwW5Y/wY7M+rF1LZS4OXrv4Y2WR7od2+6y0qamBIvvf08881Hqqf+MUaQK/Y7xVbDgkk7edE8QYJqhe5cZbJGm6imS9hvfNmMstNQJVhN5Dn9WQX+QhA+EzgKtnKznGknvSJbOWlZxz2oEiHbcivmk+EIYqpkKkUg9FD1n2WBRzlovXusUX68O0yEpfX7dfSQwBqfi3Q8f0aIl0TmdrYrUXeDm0LfG8wDtCIkymnlAqgxFpW/1Jo1U9wogGEy6MCBSuXun2D/CY1U4pmM3AccszDkU7432cvnkht5lByYiIWMK6iFqOURN/YqtFm6SJUwsBE6ZLMLEgM6Hw+JYftSufXU=
+    github_token: $GITHUB_TOKEN
     skip_cleanup: true
     local_dir: build
     on:
