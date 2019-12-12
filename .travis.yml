@@ -23,6 +23,7 @@ deploy:
     access_key_id: $GCS_ACCESS_KEY_ID
     secret_access_key: $GCS_SECRET_ACCESS_KEY
     bucket: hackathon-bowling
+    acl: public_read
     local_dir: build
     on:
       branch: master
