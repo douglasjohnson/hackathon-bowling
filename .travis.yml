@@ -3,20 +3,20 @@ node_js:
   - lts/*
 before_deploy: npm run-script build
 deploy:
-  - provider: pages
-    github_token:
-      secure: "W75GOyUhRufqZVHVyPWTxhczY43/lSnUDVwHjOR9D2DCiAnLZotgmJjzVnNY7BBtYMt4wVBIbjVeLKydOa73mr+MspLSAOEKGdcGy4V4FqVC8+XM1KyFzr+96F8GRH8wDwgy+DPH3vQb+bBPEbuhgwoIGHnV7+9b2gGSMJmdLNc9fW0Zmk9mHsRvrVJ3v7b1tX0YlSQt2WOGI95RfbwGVSLF3nQ+GrRi58rZ7pg0maJLqmX92oVIJ4NfjcjHV3LquprdjoJJuK+I9N6hpN0W/eirQZrh8duI76HmiDwL5R6sUoRc/kzLCu9VURuitVqg5RLru+X658sTyXYzKPgwW5Y/wY7M+rF1LZS4OXrv4Y2WR7od2+6y0qamBIvvf08881Hqqf+MUaQK/Y7xVbDgkk7edE8QYJqhe5cZbJGm6imS9hvfNmMstNQJVhN5Dn9WQX+QhA+EzgKtnKznGknvSJbOWlZxz2oEiHbcivmk+EIYqpkKkUg9FD1n2WBRzlovXusUX68O0yEpfX7dfSQwBqfi3Q8f0aIl0TmdrYrUXeDm0LfG8wDtCIkymnlAqgxFpW/1Jo1U9wogGEy6MCBSuXun2D/CY1U4pmM3AccszDkU7432cvnkht5lByYiIWMK6iFqOURN/YqtFm6SJUwsBE6ZLMLEgM6Hw+JYftSufXU="
+  - provider: s3
+    access_key_id: AKIAZO255AVANZZ4E4UL
+    secret_access_key:
+      secure: U5ca/U6BYeSpm32Y7CImxWc7tQqEWqJY/Mfd/MfRKQBSdYRz3Kf1pfpsQg+iarjjs7Nh1Urd1hBNnIJj9PrgBQnPNe0iU3Vtylr+kJl/TRb3yahvAp2tIg5Ncz0YDg9JwccVIIzdN7r7hkT4bw+hL1vtsjsMUMOXjyDjhqhuzyX2Ui/LKzDfrxcSNrj8GhWZwTQliARWa0N8QsUEH//KYJKtwS+rGZ9oKfdLXmwNNy7eRhOgh0tDHTVYteW3mH79oiGtNMi2Ef81j2wt06046o/8lYQa9C8tFTpHZ9kdx/5PWLb3eOgnyJd6x4+u7cigFdnckwCAiSYzkZ++a3cAMWustgrqLTqfWC7oXQvaNT0hUFzrtKmWVQCvBNdoeDD/G/yfGjPWBqQqtDoS0Jd1QCJSZhIjje9603JSW8rfGXe6WWipnvcMq/JyK6yQmNkhreNnwR8Q5M8BjRsGHLY3HIKaz/fNkB0w6MVv2ltLMimEN2Vae7JAGDPz6cMGU3NGFfdBVCqEQ2ZfjlJvjZRHYT2ke4PVGhF4xjlLl7Zs3eRpLxKVsquxNFJ3/11DwY7fzyuZwO0GaZAYb/6SzNT0SqqFNArmI/9n+NrE675WFH3Hp0302Eph69vV8nQhUnWARSKxiBnQYUJZL3ZSykgMcf77AONOphzSr7P0POuWpxQ=
+    bucket: hackathon-bowling
+    region: eu-west-2
+    acl: public_read
     skip_cleanup: true
     local_dir: build
     on:
       branch: master
-  - provider: s3
-    access_key_id: "AKIAZO255AVANZZ4E4UL"
-    secret_access_key:
-      secure: "U5ca/U6BYeSpm32Y7CImxWc7tQqEWqJY/Mfd/MfRKQBSdYRz3Kf1pfpsQg+iarjjs7Nh1Urd1hBNnIJj9PrgBQnPNe0iU3Vtylr+kJl/TRb3yahvAp2tIg5Ncz0YDg9JwccVIIzdN7r7hkT4bw+hL1vtsjsMUMOXjyDjhqhuzyX2Ui/LKzDfrxcSNrj8GhWZwTQliARWa0N8QsUEH//KYJKtwS+rGZ9oKfdLXmwNNy7eRhOgh0tDHTVYteW3mH79oiGtNMi2Ef81j2wt06046o/8lYQa9C8tFTpHZ9kdx/5PWLb3eOgnyJd6x4+u7cigFdnckwCAiSYzkZ++a3cAMWustgrqLTqfWC7oXQvaNT0hUFzrtKmWVQCvBNdoeDD/G/yfGjPWBqQqtDoS0Jd1QCJSZhIjje9603JSW8rfGXe6WWipnvcMq/JyK6yQmNkhreNnwR8Q5M8BjRsGHLY3HIKaz/fNkB0w6MVv2ltLMimEN2Vae7JAGDPz6cMGU3NGFfdBVCqEQ2ZfjlJvjZRHYT2ke4PVGhF4xjlLl7Zs3eRpLxKVsquxNFJ3/11DwY7fzyuZwO0GaZAYb/6SzNT0SqqFNArmI/9n+NrE675WFH3Hp0302Eph69vV8nQhUnWARSKxiBnQYUJZL3ZSykgMcf77AONOphzSr7P0POuWpxQ="
-    bucket: "hackathon-bowling"
-    region: "eu-west-2"
-    acl: public_read
+  - provider: pages
+    github_token:
+      secure: W75GOyUhRufqZVHVyPWTxhczY43/lSnUDVwHjOR9D2DCiAnLZotgmJjzVnNY7BBtYMt4wVBIbjVeLKydOa73mr+MspLSAOEKGdcGy4V4FqVC8+XM1KyFzr+96F8GRH8wDwgy+DPH3vQb+bBPEbuhgwoIGHnV7+9b2gGSMJmdLNc9fW0Zmk9mHsRvrVJ3v7b1tX0YlSQt2WOGI95RfbwGVSLF3nQ+GrRi58rZ7pg0maJLqmX92oVIJ4NfjcjHV3LquprdjoJJuK+I9N6hpN0W/eirQZrh8duI76HmiDwL5R6sUoRc/kzLCu9VURuitVqg5RLru+X658sTyXYzKPgwW5Y/wY7M+rF1LZS4OXrv4Y2WR7od2+6y0qamBIvvf08881Hqqf+MUaQK/Y7xVbDgkk7edE8QYJqhe5cZbJGm6imS9hvfNmMstNQJVhN5Dn9WQX+QhA+EzgKtnKznGknvSJbOWlZxz2oEiHbcivmk+EIYqpkKkUg9FD1n2WBRzlovXusUX68O0yEpfX7dfSQwBqfi3Q8f0aIl0TmdrYrUXeDm0LfG8wDtCIkymnlAqgxFpW/1Jo1U9wogGEy6MCBSuXun2D/CY1U4pmM3AccszDkU7432cvnkht5lByYiIWMK6iFqOURN/YqtFm6SJUwsBE6ZLMLEgM6Hw+JYftSufXU=
     skip_cleanup: true
     local_dir: build
     on:
